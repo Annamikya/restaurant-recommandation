@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Rating Predictor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Restaurant Rating Predictor</h1>
+
+    <input type="number" id="cost" placeholder="Average cost for two">
+    <input type="number" id="votes" placeholder="Votes">
+    <select id="online">
+        <option value="1">Online Order: Yes</option>
+        <option value="0">Online Order: No</option>
+    </select>
+    <select id="table">
+        <option value="1">Table Booking: Yes</option>
+        <option value="0">Table Booking: No</option>
+    </select>
+
+    <button onclick="predict()">Predict Rating</button>
+
+    <h2 id="result"></h2>
+
+    <script src="script.js"></script>
+</body>
+</html>
