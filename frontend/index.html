@@ -1,26 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Rating Predictor</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Restaurant Rating Predictor</h1>
-
-    <input type="number" id="cost" placeholder="Average cost for two">
-    <input type="number" id="votes" placeholder="Votes">
-    <select id="online">
-        <option value="1">Online Order: Yes</option>
-        <option value="0">Online Order: No</option>
-    </select>
-    <select id="table">
-        <option value="1">Table Booking: Yes</option>
-        <option value="0">Table Booking: No</option>
-    </select>
-
-    <button onclick="predict()">Predict Rating</button>
-
-    <h2 id="result"></h2>
+    <div class="container">
+        <h1>🍽️ Restaurant Rating Predictor</h1>
+        
+        <form id="predictionForm">
+            <div class="form-group">
+                <label for="cost">Average Cost for Two (₹)</label>
+                <input type="number" id="cost" placeholder="e.g., 500" required min="0">
+            </div>
+            
+            <div class="form-group">
+                <label for="votes">Number of Votes</label>
+                <input type="number" id="votes" placeholder="e.g., 100" required min="0">
+            </div>
+            
+            <div class="form-group">
+                <label for="online">Online Order Available</label>
+                <select id="online" required>
+                    <option value="">Select Option</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="table">Table Booking Available</label>
+                <select id="table" required>
+                    <option value="">Select Option</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            
+            <button type="button" onclick="predict()">Predict Rating ⭐</button>
+        </form>
+        
+        <h2 id="result"></h2>
+    </div>
 
     <script src="script.js"></script>
 </body>
