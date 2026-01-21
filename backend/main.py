@@ -2,8 +2,19 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 import numpy as np
+from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="Restaurant Rating Predictor")
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 model = joblib.load("../model/model.pkl")
 
@@ -28,3 +39,6 @@ def predict(data: RestaurantInput):
 
     prediction = model.predict(features)
     return {"predicted_rating": round(float(prediction[0]), 2)}
+
+# Mount static files (frontend)
+app.mount("/", StaticFiles(directory="../frontend", html=True), name="frontend")
