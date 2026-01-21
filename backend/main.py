@@ -23,6 +23,8 @@ class RestaurantInput(BaseModel):
     votes: int
     online_order: int
     table_booking: int
+    location: float
+    rest_type: float
 
 @app.get("/health")
 def health():
@@ -34,7 +36,9 @@ def predict(data: RestaurantInput):
         data.average_cost_for_two,
         data.votes,
         data.online_order,
-        data.table_booking
+        data.table_booking,
+        data.location,
+        data.rest_type
     ]])
 
     prediction = model.predict(features)

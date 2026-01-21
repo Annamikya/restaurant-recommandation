@@ -3,9 +3,11 @@ async function predict() {
     const votes = document.getElementById("votes").value;
     const online = document.getElementById("online").value;
     const table = document.getElementById("table").value;
+    const location = document.getElementById("location").value;
+    const rest_type = document.getElementById("rest_type").value;
     
     // Validation
-    if (!cost || !votes || online === "" || table === "") {
+    if (!cost || !votes || online === "" || table === "" || !location || !rest_type) {
         document.getElementById("result").innerText = "Please fill in all fields.";
         return;
     }
@@ -14,7 +16,9 @@ async function predict() {
         average_cost_for_two: Number(cost),
         votes: Number(votes),
         online_order: Number(online),
-        table_booking: Number(table)
+        table_booking: Number(table),
+        location: Number(location),
+        rest_type: Number(rest_type)
     };
     
     const resultElement = document.getElementById("result");
