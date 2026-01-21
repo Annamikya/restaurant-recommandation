@@ -41,4 +41,4 @@ def predict(data: RestaurantInput):
     return {"predicted_rating": round(float(prediction[0]), 2)}
 
 # Mount static files (frontend)
-app.mount("/", StaticFiles(directory="../frontend", html=True), name="frontend")
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
